@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <p>This is a about page</p>
+    <p>id page</p>
+    <p>{{ this.$route.params.id }}</p>
   </div>
 </template>
 

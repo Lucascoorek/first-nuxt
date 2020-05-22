@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <logo />
+      <Logo />
       <h1 class="title">
         My nuxt proj
       </h1>
@@ -13,16 +13,13 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Logo from "~/components/Logo.vue";
 
 export default {
   components: {
-    Logo
-  }
-}
+    Logo,
+  },
+};
 </script>
 
-<style>
-
-
-</style>
+<style></style>

@@ -2,6 +2,7 @@
   <nav>
     <nuxt-link to="/" exact>Home</nuxt-link>
     <nuxt-link to="/about" exact>About</nuxt-link>
+    <nuxt-link to="/search" exact>Search</nuxt-link>
   </nav>
 </template>
 

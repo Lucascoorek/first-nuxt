@@ -1,23 +1,24 @@
 :root {
   --primary-color: #35495e;
   --gray-color: #526488;
-  --secondary-color: #1D6F86;
-  --accent-green-color: #3ABE97;
-  --accent-yellow-color: #F9F871;
+  --secondary-color: #1d6f86;
+  --accent-green-color: #3abe97;
+  --accent-yellow-color: #f9f871;
 }
 
 .container {
   margin: 0 auto;
   min-height: 80vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
