@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container search">
     <p>Search page</p>
     <form @submit.prevent="submit">
       <input ref="searchInput" v-model="search" type="text" />
@@ -28,11 +28,11 @@ export default {
 };
 </script>
 
-<style>
-p {
+<style scoped>
+.search p {
   margin: 20px auto;
 }
-input {
+.search input {
   display: block;
   margin: 10px auto;
 }

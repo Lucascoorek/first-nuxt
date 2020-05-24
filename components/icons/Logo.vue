@@ -187,7 +187,7 @@ export default {
 </script>
 <style>
 .logo-container {
-  width: 50%;
+  width: 20%;
   margin: 0 auto;
 }
 .NuxtLogo {

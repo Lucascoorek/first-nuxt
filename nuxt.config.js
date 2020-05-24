@@ -2,6 +2,9 @@ import "dotenv/config";
 
 export default {
   mode: "universal",
+  env: {
+    GUARDIAN_API_KEY: process.env.GUARDIAN_API_KEY,
+  },
   /*
    ** Headers of the page
    */

@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 nav {
   width: 100%;
   display: flex;
@@ -28,15 +28,15 @@ nav {
   align-items: center;
   justify-content: center;
 }
-a {
+nav a {
   margin: 10px 20px;
   text-decoration: none;
   color: var(--primary-color);
 }
-a.nuxt-link-active {
+nav a.nuxt-link-active {
   color: var(--accent-green-color);
 }
-.username {
+nav .username {
   color: var(--accent-pink-color);
 }
 </style>
