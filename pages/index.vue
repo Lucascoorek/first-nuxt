@@ -6,10 +6,16 @@
         Latest news
       </h2>
       <ul>
-        <li v-for="result in results" :key="result.id">
-          <p>{{ result.webTitle }}</p>
-          <img :src="result.fields.thumbnail" :alt="result.id" />
-        </li>
+        <nuxt-link
+          v-for="result in results"
+          :key="result.id"
+          :to="`/${result.uuid}`"
+        >
+          <li>
+            <p>{{ result.webTitle }}</p>
+            <img :src="result.fields.thumbnail" :alt="result.id" />
+          </li>
+        </nuxt-link>
       </ul>
     </div>
   </div>
@@ -17,17 +23,21 @@
 
 <script>
 import { Logo } from "@/components/icons/";
+import { v4 as uuidv4 } from "uuid";
 
 export default {
   components: {
     Logo,
   },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, store }) {
     const { data } = await $axios.get(
       `https://content.guardianapis.com/search?order-by=newest&show-fields=thumbnail&q=latest%20news&api-key=test`
     );
-
-    return { results: data.response.results };
+    const results = data.response.results.map((element) => {
+      return { ...element, uuid: uuidv4() };
+    });
+    store.commit("addResults", results);
+    return { results };
   },
 };
 </script>
