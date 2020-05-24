@@ -1,7 +1,6 @@
 <template>
   <nav>
     <nuxt-link to="/" exact>Home</nuxt-link>
-    <nuxt-link to="/about" exact>About</nuxt-link>
     <nuxt-link v-if="$auth.loggedIn" to="/search" exact>Search</nuxt-link>
     <nuxt-link v-if="$auth.loggedIn" to="/user" exact>User</nuxt-link>
     <a v-if="$auth.loggedIn" class="right" @click="$auth.logout()"

@@ -1,9 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container user">
+    <p>{{ user.login }}</p>
+    <p>{{ user.company }}</p>
     <div class="img">
       <img :src="user.avatar_url" :alt="user.login" />
     </div>
-    <p>{{ user.login }}</p>
+    <p>{{ user.email }}</p>
     <p>{{ user.location }}</p>
   </div>
 </template>
@@ -22,11 +24,11 @@ export default {
 };
 </script>
 
-<style>
-p {
-  margin: 20px auto;
+<style scoped>
+.user p {
+  margin: 15px auto;
 }
-input {
+.user input {
   display: block;
   margin: 10px auto;
 }
