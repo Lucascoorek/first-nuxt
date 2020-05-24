@@ -4,6 +4,7 @@
   --secondary-color: #1d6f86;
   --accent-green-color: #3abe97;
   --accent-yellow-color: #f9f871;
+  --accent-pink-color: #d998b8;
 }
 
 .container {
@@ -32,4 +33,16 @@
   color: var(--gray-color);
   word-spacing: 5px;
   padding-bottom: 15px;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+a {
+  cursor: pointer;
 }

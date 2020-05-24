@@ -188,7 +188,7 @@
 .NuxtLogo {
   width: 100%;
   height: 100%;
-  animation: 1s appear;
+  /* animation: 1s appear; */
   margin: auto;
 }
 

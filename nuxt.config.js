@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 export default {
   mode: "universal",
   /*
@@ -38,7 +40,25 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    // axios is required by @nuxtjs/auth
+    "@nuxtjs/axios",
+    // https://auth.nuxtjs.org
+    "@nuxtjs/auth",
+  ],
+  auth: {
+    redirect: {
+      login: "/", // redirect user when not connected
+      callback: "/auth/github/callback",
+    },
+    strategies: {
+      local: false,
+      github: {
+        client_id: process.env.GIT_ID,
+        client_secret: process.env.GIT_SECRET,
+      },
+    },
+  },
   /*
    ** Build configuration
    */
