@@ -41,7 +41,7 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // axios is required by @nuxtjs/auth
+    // axios is required by @nuxtjs/auths
     "@nuxtjs/axios",
     // https://auth.nuxtjs.org
     "@nuxtjs/auth",
@@ -49,7 +49,7 @@ export default {
   auth: {
     redirect: {
       login: "/", // redirect user when not connected
-      callback: "/auth/github/callback",
+      callback: "/callback",
     },
     strategies: {
       local: false,
