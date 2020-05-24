@@ -6,7 +6,7 @@
     <a v-if="$auth.loggedIn" class="right" @click="$auth.logout()"
       >Log out <span class="username">{{ user.login }}</span></a
     >
-    <a v-else class="right" @click="$auth.loginWith('github')">Github login</a>
+    <a v-else @click="$auth.loginWith('github')">Github login</a>
   </nav>
 </template>
 
@@ -35,9 +35,6 @@ a {
 }
 a.nuxt-link-active {
   color: var(--accent-green-color);
-}
-a.right {
-  /* margin-left: auto; */
 }
 .username {
   color: var(--accent-pink-color);
