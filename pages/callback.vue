@@ -1,11 +1,16 @@
 <template>
   <div class="container">
-    <p>Logging in...</p>
+    <Loading />
   </div>
 </template>
 
 <script>
-export default {};
+import { Loading } from "@/components/icons/";
+export default {
+  components: {
+    Loading,
+  },
+};
 </script>
 
 <style></style>

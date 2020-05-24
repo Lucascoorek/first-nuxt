@@ -180,6 +180,11 @@
     </svg>
   </div>
 </template>
+<script>
+export default {
+  name: "Logo",
+};
+</script>
 <style>
 .logo-container {
   width: 50%;
