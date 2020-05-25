@@ -2,17 +2,18 @@
   <div class="container index">
     <div>
       <Logo />
-      <h2 class="subtitle">
+      <h1 class="subtitle">
         Latest news
-      </h2>
+      </h1>
+      <p>powerd by Guardian</p>
       <ul>
         <nuxt-link
           v-for="result in results"
-          :key="result.id"
+          :key="result.uuid"
           :to="`/${result.uuid}`"
         >
           <li>
-            <p>{{ result.webTitle }}</p>
+            <h3>{{ result.webTitle }}</h3>
             <img :src="result.fields.thumbnail" :alt="result.id" />
           </li>
         </nuxt-link>
@@ -58,6 +59,17 @@ export default {
 .index img {
   display: block;
   margin: 10px auto;
-  width: 70%;
+  width: 100%;
+}
+.index p,
+.index h3 {
+  color: var(--gray-color);
+  margin: 20px 0 10px;
+}
+.index a {
+  display: block;
+  text-decoration: none;
+  width: 90%;
+  margin: 60px auto;
 }
 </style>
