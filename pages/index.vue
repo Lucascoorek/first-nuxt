@@ -51,6 +51,7 @@ export default {
 .index ul {
   list-style-type: none;
   margin: 0;
+  padding: 0;
 }
 .index li {
   width: 70%;
@@ -63,7 +64,6 @@ export default {
 }
 .index p,
 .index h3 {
-  color: var(--gray-color);
   margin: 20px 0 10px;
 }
 .index a {

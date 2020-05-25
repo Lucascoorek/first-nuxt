@@ -7,6 +7,12 @@
       >Log out <span class="username">{{ user.login }}</span></a
     >
     <a v-else @click="$auth.loginWith('github')">Github login</a>
+    <div class="theme-container">
+      <p class="btn" @click="$colorMode.preference = 'dark'">Dark</p>
+      <p class="btn" @click="$colorMode.preference = 'sepia'">Sepia</p>
+      <p class="btn" @click="$colorMode.preference = 'light'">Light</p>
+      <p class="btn" @click="$colorMode.preference = 'system'">System</p>
+    </div>
   </nav>
 </template>
 
@@ -31,12 +37,16 @@ nav {
 nav a {
   margin: 10px 20px;
   text-decoration: none;
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
 }
+
 nav a.nuxt-link-active {
   color: var(--accent-green-color);
 }
 nav .username {
   color: var(--accent-pink-color);
+}
+nav .theme-container {
+  display: flex;
 }
 </style>

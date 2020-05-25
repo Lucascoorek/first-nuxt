@@ -1,6 +1,7 @@
 :root {
   --primary-color: #35495e;
   --gray-color: #526488;
+  --gray-light-color: #6478a1;
   --secondary-color: #1d6f86;
   --accent-green-color: #3abe97;
   --accent-yellow-color: #f9f871;
@@ -33,6 +34,30 @@
 .page-leave-to {
   opacity: 0;
 }
+.dark-mode body,
+.dark-mode a {
+  background-color: #091a28;
+  color: var(--gray-light-color);
+}
+.sepia-mode body,
+.sepia-mode a {
+  background-color: #f1e7d0;
+  color: #433422;
+}
 a {
   cursor: pointer;
+  color: var(--primary-color);
+}
+.btn {
+  border: 1px solid var(--primary-color);
+  padding: 10px;
+  margin: 5px;
+  width: 80px;
+  text-align: center;
+}
+.dark-mode .btn {
+  border: 1px solid var(--gray-light-color);
+}
+.sepia-mode .btn {
+  border: 1px solid #433422;
 }

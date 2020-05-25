@@ -15,6 +15,9 @@
 <script>
 import { Loading } from "@/components/icons";
 export default {
+  components: {
+    Loading,
+  },
   async fetch() {
     this.apiUri = this.$store.getters.getUri(this.$route.params.id);
     const { data } = await this.$axios.get(
