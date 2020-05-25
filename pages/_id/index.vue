@@ -40,14 +40,17 @@ export default {
 .single-article img {
   display: block;
   max-width: 70%;
+  width: 100%;
   margin: 20px auto;
 }
 .single-article h1 {
-  width: 70%;
+  width: 95%;
+  max-width: 400px;
   margin: 20px auto;
 }
 .html-container {
-  width: 70%;
+  width: 95%;
+  max-width: 400px;
   margin: 20px auto;
   text-align: justify;
 }

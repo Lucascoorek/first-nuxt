@@ -1,9 +1,9 @@
 <template>
   <div class="container search">
-    <p>Search page</p>
+    <p>Search Guardian news for given phrase</p>
     <form @submit.prevent="submit">
-      <input ref="searchInput" v-model="search" type="text" />
-      <input type="submit" value="Search" />
+      <input ref="searchInput" v-model="search" class="btn" type="text" />
+      <input class="btn" type="submit" value="Search" />
     </form>
   </div>
 </template>
@@ -29,11 +29,15 @@ export default {
 </script>
 
 <style scoped>
+.search {
+  justify-content: start;
+}
 .search p {
   margin: 20px auto;
 }
-.search input {
+.search input.btn {
   display: block;
-  margin: 10px auto;
+  width: 100%;
+  font-size: 1rem;
 }
 </style>

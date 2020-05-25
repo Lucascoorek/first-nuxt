@@ -47,6 +47,8 @@ export default {
 .index {
   justify-content: start;
   margin-top: 40px;
+  width: 100%;
+  min-width: 400px;
 }
 .index ul {
   list-style-type: none;
@@ -54,17 +56,18 @@ export default {
   padding: 0;
 }
 .index li {
-  width: 70%;
+  width: 100%;
   margin: 10px auto;
 }
 .index img {
   display: block;
   margin: 10px auto;
-  width: 100%;
+  width: 90%;
 }
 .index p,
 .index h3 {
   margin: 20px 0 10px;
+  width: 95%;
 }
 .index a {
   display: block;

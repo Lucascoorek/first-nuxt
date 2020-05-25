@@ -35,12 +35,14 @@
   opacity: 0;
 }
 .dark-mode body,
-.dark-mode a {
+.dark-mode a,
+.dark-mode input {
   background-color: #091a28;
   color: var(--gray-light-color);
 }
 .sepia-mode body,
-.sepia-mode a {
+.sepia-mode a,
+.sepia-mode input {
   background-color: #f1e7d0;
   color: #433422;
 }
@@ -50,10 +52,13 @@ a {
 }
 .btn {
   border: 1px solid var(--primary-color);
+  border-radius: 10px;
   padding: 10px;
   margin: 5px;
   width: 80px;
   text-align: center;
+  background-color: transparent;
+  cursor: pointer;
 }
 .dark-mode .btn {
   border: 1px solid var(--gray-light-color);
