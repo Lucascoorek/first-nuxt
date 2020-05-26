@@ -32,7 +32,7 @@ export default {
   },
   async asyncData({ $axios, store }) {
     const { data } = await $axios.get(
-      `https://content.guardianapis.com/search?order-by=newest&show-fields=thumbnail&q=latest%20news&api-key=test`
+      `https://content.guardianapis.com/search?order-by=newest&show-fields=thumbnail&q=latest%20news&api-key=${process.env.GUARDIAN_API_KEY}`
     );
     const results = data.response.results.map((element) => {
       return { ...element, uuid: uuidv4() };
@@ -52,7 +52,7 @@ export default {
 <style>
 .index {
   justify-content: start;
-  margin-top: 40px;
+  margin: 40px auto;
   width: 100%;
   max-width: 400px;
 }

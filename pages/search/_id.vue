@@ -21,7 +21,7 @@ export default {
     const { data } = await this.$axios.get(
       `https://content.guardianapis.com/search?order-by=newest&show-fields=body&page-size=1&q=${encodeURIComponent(
         this.$route.params.id
-      )}&api-key=test`
+      )}&api-key=${process.env.GUARDIAN_API_KEY}`
     );
     this.post = data.response.results[0];
     this.loading = false;
