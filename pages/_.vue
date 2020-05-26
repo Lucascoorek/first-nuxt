@@ -8,6 +8,7 @@
     </article>
     <div v-else>
       <Loading />
+      {{ $route.params.id }}
     </div>
   </div>
 </template>
@@ -20,7 +21,7 @@ export default {
   },
   async fetch() {
     const { data } = await this.$axios.get(
-      `https://content.guardianapis.com/${this.$route.params.id}?order-by=relevance&show-fields=body&page=1&api-key=test`
+      `https://content.guardianapis.com/${this.$route.params.pathMatch}?order-by=relevance&show-fields=body&page=1&api-key=${process.env.GUARDIAN_API_KEY}`
     );
     this.post = data.response.content;
     this.loading = false;

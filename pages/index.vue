@@ -5,11 +5,7 @@
       <h1 class="subtitle">Latest news</h1>
       <p>powerd by Guardian</p>
       <ul>
-        <nuxt-link
-          v-for="result in results"
-          :key="result.uuid"
-          :to="`/${encodeURIComponent(result.id)}`"
-        >
+        <nuxt-link v-for="result in results" :key="result.uuid" :to="`/${result.id}`">
           <li>
             <h3>{{ result.webTitle }}</h3>
             <img :src="result.fields.thumbnail" :alt="result.id" />
