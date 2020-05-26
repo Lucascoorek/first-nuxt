@@ -25,6 +25,13 @@ export default {
     meta: {
       name: "My App",
       description: "This is description for og meta tags",
+      ogHost: "https://lukascoorek-nuxt.herokuapp.com/",
+      ogImage: {
+        path: "static/icon.png",
+        width: "512",
+        height: "512",
+        type: "image/png",
+      },
     },
   },
   /*
