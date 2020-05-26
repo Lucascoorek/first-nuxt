@@ -3,7 +3,7 @@
     <article v-if="!loading">
       <h1>{{ post.webTitle }}</h1>
       <p>{{ post.webPublicationDate.split("T")[0] }}</p>
-      <img :src="post.fields.thumbnail" alt="" />
+      <img :src="post.fields.thumbnail" alt />
       <div class="html-container" v-html="post.fields.body"></div>
     </article>
     <div v-else>
@@ -19,16 +19,14 @@ export default {
     Loading,
   },
   async fetch() {
-    this.apiUri = this.$store.getters.getUri(this.$route.params.id);
     const { data } = await this.$axios.get(
-      `https://content.guardianapis.com/${this.apiUri}?show-fields=thumbnail%2Cbody%2Cheadline&api-key=${process.env.GUARDIAN_API_KEY}`
+      `https://content.guardianapis.com/${this.$route.params.id}?order-by=relevance&show-fields=body&page=1&api-key=test`
     );
     this.post = data.response.content;
     this.loading = false;
   },
   data() {
     return {
-      apiUri: "",
       post: {},
       loading: true,
     };

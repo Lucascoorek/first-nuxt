@@ -2,15 +2,13 @@
   <div class="container index">
     <div>
       <Logo />
-      <h1 class="subtitle">
-        Latest news
-      </h1>
+      <h1 class="subtitle">Latest news</h1>
       <p>powerd by Guardian</p>
       <ul>
         <nuxt-link
           v-for="result in results"
           :key="result.uuid"
-          :to="`/${result.uuid}`"
+          :to="`/${encodeURIComponent(result.id)}`"
         >
           <li>
             <h3>{{ result.webTitle }}</h3>
@@ -30,14 +28,11 @@ export default {
   components: {
     Logo,
   },
-  async asyncData({ $axios, store }) {
+  async asyncData({ $axios }) {
     const { data } = await $axios.get(
       `https://content.guardianapis.com/search?order-by=newest&show-fields=thumbnail&q=latest%20news&api-key=${process.env.GUARDIAN_API_KEY}`
     );
-    const results = data.response.results.map((element) => {
-      return { ...element, uuid: uuidv4() };
-    });
-    store.commit("addResults", results);
+    const results = data.response.results;
     return { results };
   },
   head() {
