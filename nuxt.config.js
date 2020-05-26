@@ -19,7 +19,6 @@ export default {
         content: "Generic descripton for  all not defined in pages",
       },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   pwa: {
     meta: {
@@ -27,7 +26,7 @@ export default {
       description: "This is description for og meta tags",
       ogHost: "https://lukascoorek-nuxt.herokuapp.com/",
       ogImage: {
-        path: "static/icon.png",
+        path: "icon.png",
         width: "512",
         height: "512",
         type: "image/png",
