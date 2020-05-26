@@ -21,6 +21,18 @@ export default {
       return this.$auth.user;
     },
   },
+  head() {
+    return {
+      title: this.user.login,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: `Github logged user: ${this.user.login}`,
+        },
+      ],
+    };
+  },
 };
 </script>
 

@@ -25,6 +25,18 @@ export default {
       this.search = "";
     },
   },
+  head() {
+    return {
+      title: "Search",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: `Serach for Guardian news`,
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -39,5 +51,6 @@ export default {
   display: block;
   width: 100%;
   font-size: 1rem;
+  outline: none;
 }
 </style>

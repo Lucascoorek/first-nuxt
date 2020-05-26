@@ -8,10 +8,30 @@
     >
     <a v-else @click="$auth.loginWith('github')">Github login</a>
     <div class="theme-container">
-      <p class="btn" @click="$colorMode.preference = 'dark'">Dark</p>
-      <p class="btn" @click="$colorMode.preference = 'sepia'">Sepia</p>
-      <p class="btn" @click="$colorMode.preference = 'light'">Light</p>
-      <p class="btn" @click="$colorMode.preference = 'system'">System</p>
+      <p
+        :class="{ btn: true, bold: $colorMode.preference === 'dark' }"
+        @click="$colorMode.preference = 'dark'"
+      >
+        Dark
+      </p>
+      <p
+        :class="{ btn: true, bold: $colorMode.preference === 'sepia' }"
+        @click="$colorMode.preference = 'sepia'"
+      >
+        Sepia
+      </p>
+      <p
+        :class="{ btn: true, bold: $colorMode.preference === 'light' }"
+        @click="$colorMode.preference = 'light'"
+      >
+        Light
+      </p>
+      <p
+        :class="{ btn: true, bold: $colorMode.preference === 'system' }"
+        @click="$colorMode.preference = 'system'"
+      >
+        System
+      </p>
     </div>
   </nav>
 </template>
@@ -48,5 +68,8 @@ nav .username {
 }
 nav .theme-container {
   display: flex;
+}
+nav .bold {
+  font-weight: bold;
 }
 </style>

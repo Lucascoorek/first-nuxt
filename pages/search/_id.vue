@@ -2,7 +2,7 @@
   <div class="container search-id">
     <article v-if="!loading">
       <h1>{{ post.webTitle }}</h1>
-      <p>{{ post.webPublicationDate }}</p>
+      <p>{{ post.webPublicationDate.split("T")[0] }}</p>
       <div class="html-container" v-html="post.fields.body"></div>
     </article>
     <div v-else>
@@ -30,6 +30,18 @@ export default {
     return {
       post: {},
       loading: true,
+    };
+  },
+  head() {
+    return {
+      title: this.post.webTitle ? `${this.post.webTitle.slice(0, 10)}...` : "",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.post.webTitle,
+        },
+      ],
     };
   },
 };

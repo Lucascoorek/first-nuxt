@@ -40,6 +40,12 @@ export default {
     store.commit("addResults", results);
     return { results };
   },
+  head() {
+    return {
+      title: "Home",
+      meta: [{ hid: "description", name: "description", content: "Home page" }],
+    };
+  },
 };
 </script>
 

@@ -2,7 +2,7 @@
   <div class="container single-article">
     <article v-if="!loading">
       <h1>{{ post.webTitle }}</h1>
-      <p>{{ post.webPublicationDate }}</p>
+      <p>{{ post.webPublicationDate.split("T")[0] }}</p>
       <img :src="post.fields.thumbnail" alt="" />
       <div class="html-container" v-html="post.fields.body"></div>
     </article>
@@ -33,6 +33,18 @@ export default {
       loading: true,
     };
   },
+  head() {
+    return {
+      title: this.post.webTitle ? `${this.post.webTitle.slice(0, 10)}...` : "",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.post.webTitle,
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -58,7 +70,8 @@ export default {
   margin: 20px 0;
   line-height: 1.5;
 }
-.html-container >>> img {
+.html-container >>> img,
+.html-container >>> iframe {
   display: block;
   margin: 20px auto 0;
   width: 100%;

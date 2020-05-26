@@ -10,6 +10,11 @@ export default {
   components: {
     Loading,
   },
+  head() {
+    return {
+      title: "Login",
+    };
+  },
 };
 </script>
 

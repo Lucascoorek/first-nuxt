@@ -9,14 +9,14 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: "MYNUXT",
+    titleTemplate: "%s - My App",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
         name: "description",
-        content: "My first nuxt project",
+        content: "Generic descripton for  all not defined in pages",
       },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
