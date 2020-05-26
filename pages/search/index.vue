@@ -37,6 +37,11 @@ export default {
       ],
     };
   },
+  pwa: {
+    meta: {
+      name: "Search | My App",
+    },
+  },
 };
 </script>
 

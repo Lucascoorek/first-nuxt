@@ -9,7 +9,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: "%s - My App",
+    titleTemplate: "%s | My App",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -20,6 +20,12 @@ export default {
       },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+  },
+  pwa: {
+    meta: {
+      name: "My App",
+      description: "This is description for og meta tags",
+    },
   },
   /*
    ** Customize the progress-bar color
@@ -39,7 +45,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ["@nuxtjs/color-mode"],
+  buildModules: ["@nuxtjs/color-mode", "@nuxtjs/pwa"],
   /*
    ** Nuxt.js modules
    */

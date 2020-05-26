@@ -54,7 +54,7 @@ export default {
   justify-content: start;
   margin-top: 40px;
   width: 100%;
-  min-width: 400px;
+  max-width: 400px;
 }
 .index ul {
   list-style-type: none;
