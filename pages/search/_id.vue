@@ -19,17 +19,19 @@ export default {
   },
   async fetch() {
     const { data } = await this.$axios.get(
-      `https://content.guardianapis.com/search?order-by=newest&show-fields=body&page-size=1&q=${encodeURIComponent(
+      `https://content.guardianapis.com/search?order-by=newest&show-fields=body%2Cthumbnail&page-size=1&q=${encodeURIComponent(
         this.$route.params.id
       )}&api-key=${process.env.GUARDIAN_API_KEY}`
     );
     this.post = data.response.results[0];
+    this.thumbnail = data.response.results[0].fields.thumbnail;
     this.loading = false;
   },
   data() {
     return {
       post: {},
       loading: true,
+      thumbnail: "",
     };
   },
   head() {
@@ -40,6 +42,19 @@ export default {
           hid: "description",
           name: "description",
           content: this.post.webTitle,
+        },
+        { hid: "og-title", property: "og:title", content: this.post.webTitle },
+        {
+          hid: "og-image",
+          property: "og:image",
+          content: this.thumbnail,
+        },
+        { hid: "og-image-width", property: "og:image:width", content: 500 },
+        { hid: "og-image-height", property: "og:image:height", content: 300 },
+        {
+          hid: "og-image-type",
+          property: "og:image:type",
+          content: "image/jpeg",
         },
       ],
     };

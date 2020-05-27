@@ -16,22 +16,20 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: "Generic descripton for  all not defined in pages",
+        content: "Generic descripton for all not defined in pages",
+      },
+      {
+        hid: "og-title",
+        property: "og:title",
+        content: "Generic descripton for all not defined in pages",
+      },
+      {
+        hid: "og-image",
+        property: "og:image",
+        content: "/apple-touch-icon.png",
       },
     ],
-  },
-  pwa: {
-    meta: {
-      name: "My App",
-      description: "This is description for og meta tags",
-      ogHost: "https://lukascoorek-nuxt.herokuapp.com/",
-      ogImage: {
-        path: "icon.png",
-        width: "512",
-        height: "512",
-        type: "image/png",
-      },
-    },
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   /*
    ** Customize the progress-bar color
@@ -51,7 +49,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ["@nuxtjs/color-mode", "@nuxtjs/pwa"],
+  buildModules: ["@nuxtjs/color-mode"],
   /*
    ** Nuxt.js modules
    */

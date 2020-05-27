@@ -8,7 +8,6 @@
     </article>
     <div v-else>
       <Loading />
-      {{ $route.params.id }}
     </div>
   </div>
 </template>
@@ -20,16 +19,22 @@ export default {
     Loading,
   },
   async fetch() {
-    const { data } = await this.$axios.get(
-      `https://content.guardianapis.com/${this.$route.params.pathMatch}?order-by=relevance&show-fields=body&page=1&api-key=${process.env.GUARDIAN_API_KEY}`
-    );
-    this.post = data.response.content;
-    this.loading = false;
+    try {
+      const { data } = await this.$axios.get(
+        `https://content.guardianapis.com/${this.$route.params.pathMatch}?order-by=relevance&show-fields=body%2Cthumbnail&page=1&api-key=${process.env.GUARDIAN_API_KEY}`
+      );
+      this.post = data.response.content;
+      this.thumbnail = data.response.content.fields.thumbnail;
+      this.loading = false;
+    } catch (error) {
+      console.log(error);
+    }
   },
   data() {
     return {
       post: {},
       loading: true,
+      thumbnail: "",
     };
   },
   head() {
@@ -40,6 +45,19 @@ export default {
           hid: "description",
           name: "description",
           content: this.post.webTitle,
+        },
+        { hid: "og-title", property: "og:title", content: this.post.webTitle },
+        {
+          hid: "og-image",
+          property: "og:image",
+          content: this.thumbnail,
+        },
+        { hid: "og-image-width", property: "og:image:width", content: 500 },
+        { hid: "og-image-height", property: "og:image:height", content: 300 },
+        {
+          hid: "og-image-type",
+          property: "og:image:type",
+          content: "image/jpeg",
         },
       ],
     };
