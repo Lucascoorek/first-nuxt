@@ -24,14 +24,16 @@ export default {
       )}&api-key=${process.env.GUARDIAN_API_KEY}`
     );
     this.post = data.response.results[0];
-    this.thumbnail = data.response.results[0].fields.thumbnail;
     this.loading = false;
   },
   data() {
     return {
-      post: {},
+      post: {
+        fields: {
+          thumbnail: "",
+        },
+      },
       loading: true,
-      thumbnail: "",
     };
   },
   head() {
@@ -47,7 +49,7 @@ export default {
         {
           hid: "og-image",
           property: "og:image",
-          content: this.thumbnail,
+          content: this.post.fields.thumbnail,
         },
         { hid: "og-image-width", property: "og:image:width", content: 500 },
         { hid: "og-image-height", property: "og:image:height", content: 300 },

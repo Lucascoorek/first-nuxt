@@ -28,7 +28,6 @@ export default {
         `https://content.guardianapis.com/${this.$route.params.pathMatch}?order-by=relevance&show-fields=body%2Cthumbnail&page=1&api-key=${process.env.GUARDIAN_API_KEY}`
       );
       this.post = data.response.content;
-      this.thumbnail = data.response.content.fields.thumbnail;
       this.loading = false;
     } catch (error) {
       console.log(error);
@@ -36,9 +35,12 @@ export default {
   },
   data() {
     return {
-      post: {},
+      post: {
+        fields: {
+          thumbnail: "",
+        },
+      },
       loading: true,
-      thumbnail: "",
     };
   },
   activated() {
@@ -69,7 +71,7 @@ export default {
         {
           hid: "og-image",
           property: "og:image",
-          content: this.thumbnail,
+          content: this.post.fields.thumbnail,
         },
         { hid: "og-image-width", property: "og:image:width", content: 500 },
         { hid: "og-image-height", property: "og:image:height", content: 300 },
