@@ -4,7 +4,11 @@
       <h1>{{ post.webTitle }}</h1>
       <p>{{ post.webPublicationDate.split("T")[0] }}</p>
       <img :src="post.fields.thumbnail" alt />
+      <!-- eslint-disable-next-line -->
       <div class="html-container" v-html="post.fields.body"></div>
+      <div>
+        <input type="button" value="Go to the top" @click="scrollToTop" />
+      </div>
     </article>
     <div v-else>
       <Loading />
@@ -36,6 +40,21 @@ export default {
       loading: true,
       thumbnail: "",
     };
+  },
+  activated() {
+    // Call fetch again if last fetch more than 30 sec ago
+    if (this.$fetchState.timestamp <= Date.now() - 30000) {
+      this.$fetch();
+    }
+  },
+  methods: {
+    scrollToTop() {
+      const el = document.querySelector("nav");
+      if (el) {
+        const scrollTo = el.getBoundingClientRect().top;
+        window.scrollBy({ top: scrollTo - 20, left: 0, behavior: "smooth" });
+      }
+    },
   },
   head() {
     return {

@@ -3,7 +3,7 @@
     <p>Other page</p>
     <ul>
       <li v-for="link in links" :key="link">
-        <nuxt-link :to="{ name: 'other-link', params: { link } }"
+        <nuxt-link :to="{ name: 'other-link', params: { link, hello: 'test' } }"
           >Link to /other/{{ link }}</nuxt-link
         >
       </li>
